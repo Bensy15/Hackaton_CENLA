@@ -1,24 +1,16 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 @extends('layouts.app')
-
+@vite('resources/css/app.css')
 @section('content')
-
-<div class="container">
-    <p>{{ $greeting }}</p>
-    @if($greeting == "Hello")
-        <p>Hi from inside the if startement</p>
-    @endif
 
     <ul> 
         @foreach($helpposts as $helppost)
-        <li>                                          {{-- highlight --}}
-            <x-card href="posts/ {{ $helppost ['id'] }}" :importance=" $helppost['skill']> ">
+        <li>                                        
+            <x-card  href="{{route('post.show', $helppost->id)}}">
                 <h3>{{ $helppost ['name_user'] }}</h3>
             </x-card>
         </li> 
      @endforeach
     </ul>
-</div>
+    {{ $helpposts->links() }}
 @endsection
-
-{{-- <p>{{ $helppost['name_user'] }}</p>
-<a href="posts/ {{ $helppost ['id'] }}">Детали</a> --}}

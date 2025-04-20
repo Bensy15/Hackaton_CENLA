@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\Auth\VolunteerAuthController;
+use App\Http\Controllers\HelpPostController;
 use App\Http\Controllers\User\HomeController as UserHomeController;
 use App\Http\Controllers\Volunteer\HomeController as VolunteerHomeController;
 use Illuminate\Support\Facades\Route;
@@ -21,24 +22,12 @@ Route::get('/', function () {
 // User Routes
 Route::prefix('user')->group(function () {
 Route::get('/home', [UserHomeController::class, 'index'])->name('user.home');
-Route::get('/posts', function () {
-    $helpposts = [
-        ["name_user" => "Аля","Heading" => "убраться дома", "importance" => true,"txt" => "Помогите убраться", "id" => "1"],
-        ["name_user" => "Алиса","Heading" => "убраться в парке", "importance" => false ,"txt" => "Помогите убрать листья и мусор", "id" => "2"],
-    ];
 
-    return view('post.index', ["greeting" => "привет", "helpposts" => $helpposts]);
-})->name('post.index');   
-
-Route::get('posts/{id}', function ($id) {
-
-    return view('post.show', ["id" => $id]);
-});
-
-// Route::get('/post/create', function () {
-//     return view('home');
-// });
-
+// Post
+Route::get('/posts', [HelpPostController::class, 'index'])->name('post.index');   
+Route::get('/posts/create', [HelpPostController::class, 'create'] )->name('post.create');
+Route::get('posts/{id}', [HelpPostController::class, 'show'])->name('post.show');
+Route::post('/posts', [HelpPostController::class, 'store'])->name('post.store');
 
     // Регистрация
     Route::get('/register', [UserAuthController::class, 'showRegistrationForm'])->name('user.register');

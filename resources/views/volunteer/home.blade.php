@@ -1,30 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Volunteer Dashboard</div>
+<link href="{{ asset('styles/dash.css') }}" rel="stylesheet">
 
-                <div class="card-body">
-                    <p>Welcome, {{ Auth::guard('volunteer')->user()->name }}!</p>
-                    <p>Email: {{ Auth::guard('volunteer')->user()->email }}</p>
-                    <p>Organization: {{ Auth::guard('volunteer')->user()->organization->name }}</p>
-                    <p>You are logged in as a volunteer.</p>
-                    
-                    <!-- Дополнительный контент для волонтера -->
-                    <div class="mt-4">
-                        <h4>Volunteer Features:</h4>
-                        <ul>
-                            <li>Feature A for Volunteers</li>
-                            <li>Feature B for Volunteers</li>
-                            <li>Feature C for Volunteers</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="main_div">
+        <h1> {{ Auth::guard('volunteer')->user()->name }}!</p> вошел как волонтер.</h1>
+        <p>Организация:{{ Auth::guard('volunteer')->user()->organization->name }} </p>
+        <h2>Привет,  {{ Auth::guard('volunteer')->user()->name }}!</p>
+            Мы рады, что вы присоединились к нашей команде волонтёров. Ваша помощь бесценна!</h2>
+        
+            <h2>Теперь вы можете откликаться на запросы о помощи, общаться с пользователями и получать благодарности за вашу работу.</h2>
+        
+            <h2>Вместе мы делаем мир лучше! Если у вас есть вопросы, мы всегда на связи.</h2>
 </div>
 @endsection

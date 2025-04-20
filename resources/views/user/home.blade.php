@@ -1,30 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('styles/dash.css') }}" rel="stylesheet">
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">User Dashboard</div>
-
-                <div class="card-body">
-                    <p>Welcome, {{ Auth::guard('user')->user()->name }}!</p>
-                    <p>Email: {{ Auth::guard('user')->user()->email }}</p>
-                    <p>You are logged in as a regular user.</p>
-                    
-                    <!-- Дополнительный контент для пользователя -->
-                    <div class="mt-4">
-                        <h4>User Features:</h4>
-                        <ul>
-                            <li>Feature 1 for Users</li>
-                            <li>Feature 2 for Users</li>
-                            <li>Feature 3 for Users</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="main_div">
+        <h1>{{ Auth::guard('user')->user()->name }}! вошел как пользователь.</h1>
+        <p>Email: </p>
+        <h2>Приветствуем вас на [Название платформы]!</h2>
+            Теперь у вас есть доступ к помощи волонтёров, полезным ресурсам и возможности находить поддержку в трудных ситуациях.
+        
+            <h2>Вы можете оставить запрос на помощь, найти полезные материалы или связаться с волонтёрами.</h2>
+        
+            <h2>Спасибо, что с нами! Если у вас есть вопросы, отправьте заявку.</h2>
     </div>
-</div>
 @endsection

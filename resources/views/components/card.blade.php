@@ -2,5 +2,5 @@
 
 <div @class(['importance' => $importance, 'card'])>
     {{ $slot }}
-    <a {{ $attributes }} class="btn">View Detalis</a>
+    <a {{ $attributes }} class="btn">Заявка</a>
 </div>

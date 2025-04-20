@@ -4,55 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Помощь</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- @vite('resources/css/app.css') --}}
+    <link href="{{ asset('styles/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/header.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Помощь</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
+    <header>
+        <div class="upblock">
+            <div class="logo_div">
+                <img src="{{ asset('assets/logo.png') }}">
+                <a class="logop" href="{{ route('home') }}" >Помощь рядом  |  На главную</a>
+            </div>
+                {{-- <ul class="navbar-nav ms-auto"> --}}
                     @auth('user')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.home') }}">Начальная страница</a>
-                        </li>
-                        <li class="nav-item">
+                        <div class="helpbtn">
                             <a class="nav-link" href="{{ route('post.index') }}"> Все обращения</a>
-                        </li>
-                        <li class="nav-item">
+                        </div>
+                        <div class="helpbtn">
+                            <a class="nav-link" href="{{ route('post.create') }}"> Сделать обращения</a>
+                        </div>
+                        <div class="helpbtn">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="nav-link btn btn-link">Выйти</button>
                             </form>
-                        </li>
+                        </div>
                     @elseauth('volunteer')
-                        <li class="nav-item">
+                        <div class="helpbtn">
                             <a class="nav-link" href="{{ route('volunteer.home') }}">Начальная страница</a>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Volunteer: {{ Auth::guard('volunteer')->user()->name }}</span>
-                        </li>
-                        <li class="nav-item">
+                        </div>
+                        <div class="helpbtn">
+                            <a class="nav-link" href="{{ route('post.index') }}"> Все обращения</a>
+                        </div>
+                        <div class="helpbtn">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="nav-link btn btn-link">Выйти</button>
                             </form>
-                        </li>
+                        </div>
                     @else
-                        <li class="nav-item">
+                        {{-- <div class="helpbtn">
                             <a class="nav-link" href="{{ route('user.register') }}">Зарегестрировать пользователя</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('volunteer.register') }}">Зарегестрировать волонтера</a>
-                        </li>
-                        <li class="nav-item">
+                        </div> --}}
+                    <div>
+                        <div class="helpbtn">
+                            <a class="nav-link" href="{{ route('volunteer.register') }}">Хочу помочь</a>
+                        </div>
+                        <div class="helpbtn">
                             <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                        </li>
+                        </div>
+                    </div>
                     @endauth
-                </ul>
+                {{-- </ul> --}}
             </div>
         </div>
-    </nav>
+    </header>
 
     <div class="container mt-4">
         @yield('content')
@@ -61,3 +67,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

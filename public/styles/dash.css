@@ -1,0 +1,32 @@
+.main_div{
+    background-color: rgb(253, 249, 193);
+    margin: 5% 10%;
+    padding: 2%;
+    border-radius: 15px;
+    border: dashed 3px black;
+    height: 500px;
+}
+
+h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+p{
+    font-size: 20px;
+    margin: 5px 50px;
+}
+
+h2{
+    width: 80%;
+    font-size: 17px;
+    margin-top: 50px;
+}
+
+.epilogue{
+    display: flex;
+    font-size: 20px;
+    margin-top: 13%;
+    margin-bottom: 100%;
+    justify-content: flex-end;
+}
