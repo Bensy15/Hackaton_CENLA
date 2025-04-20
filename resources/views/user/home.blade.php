@@ -2,7 +2,7 @@
 
 @section('content')
 <link href="{{ asset('styles/dash.css') }}" rel="stylesheet">
-
+@csrf 
     <div class="main_div">
         <h1>{{ Auth::guard('user')->user()->name }}! вошел как пользователь.</h1>
         <p>Email: </p>

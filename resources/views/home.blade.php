@@ -1,9 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
 
-<link href="{{ asset('styles/style.css') }}" rel="stylesheet">
+<p class="uptext">
+    Платформа добрых дел
+</p>
 
+<link href="{{ asset('styles/style.css') }}" rel="stylesheet">
 <div class="infoblock">
 <div class="buttons">
     <div class="buttons">

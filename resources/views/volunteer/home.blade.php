@@ -4,6 +4,7 @@
 <link href="{{ asset('styles/dash.css') }}" rel="stylesheet">
 
 <div class="main_div">
+    @csrf 
         <h1> {{ Auth::guard('volunteer')->user()->name }}!</p> вошел как волонтер.</h1>
         <p>Организация:{{ Auth::guard('volunteer')->user()->organization->name }} </p>
         <h2>Привет,  {{ Auth::guard('volunteer')->user()->name }}!</p>
